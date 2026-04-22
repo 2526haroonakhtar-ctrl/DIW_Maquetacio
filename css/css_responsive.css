@@ -1,0 +1,76 @@
+@media screen and (max-width: 768px) {
+    .nosaltres {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nosaltres img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .grid-carta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .flex-galeria img {
+        width: calc(33.33% - 1rem);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .menu {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .menu ul {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .header img {
+        height: 50vh;
+    }
+
+    .header-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .nosaltres {
+        padding: 2rem 1rem;
+    }
+
+    .nosaltres img {
+        width: 100%;
+    }
+
+    .grid-carta {
+        grid-template-columns: 1fr;
+    }
+
+    .flex-galeria img {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer .left {
+        display: none;
+    }
+
+    .footer .right {
+        width: 100%;
+    }
+
+    .btn-reserva {
+        width: calc(100% - 40px);
+        text-align: center;
+        left: 20px;
+    }
+}
