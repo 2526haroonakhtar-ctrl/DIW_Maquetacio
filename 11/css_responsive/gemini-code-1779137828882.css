@@ -1,0 +1,16 @@
+@media screen and (max-width: 768px) {
+    .plat-img-container {
+        width: calc(33.33% - 1rem);
+    }
+    
+    .video-overlay-controls {
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .plat-img-container {
+        width: 100%;
+    }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant - Els Coberts</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/css_responsive.css">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="menu" id="navbar">
+    <div class="logo">Restaurant</div>
+    <ul>
+        <li><a href="#nosaltres">Sobre nosaltres</a></li>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#video-restaurant">Vídeo</a></li>
+        <li><a href="#reserva">Reserva</a></li>
+    </ul>
+</nav>
+
+<header class="header">
+    <img src="img/header.jpg" alt="Restaurant">
+    <div class="header-text header-text-animat">
+        <h1><strong>Els Coberts</strong></h1>
+        <p>Menjar casolà de qualitat</p>
+    </div>
+</header>
+
+<section id="nosaltres" class="nosaltres">
+    <div class="text">
+        <h2>Sobre nosaltres</h2>
+        <p>Som un restaurant familiar amb passió per la cuina mediterrània.</p>
+    </div>
+    <div class="imgs">
+        <img src="img/inside.jpg" alt="Interior">
+        <img src="img/food.jpg" alt="Menjar">
+    </div>
+</section>
+
+<section id="carta" class="carta">
+    <h2>La nostra carta</h2>
+    <div class="grid-carta">
+        <div class="plat">
+            <img src="img/p1.jpg" alt="">
+            <span>Primers</span>
+        </div>
+        <div class="plat">
+            <img src="img/p2.jpg" alt="">
+            <span>Segons</span>
+        </div>
+        <div class="plat">
+            <img src="img/p3.jpg" alt="">
+            <span>Amanida</span>
+        </div>
+        <div class="plat">
+            <img src="img/p4.jpg" alt="">
+            <span>Postres</span>
+        </div>
+    </div>
+</section>
+
+<section id="galeria" class="galeria">
+    <h2>Galeria</h2>
+    <div class="flex-galeria">
+        <div class="plat-img-container"><img src="img/g1.jpg" alt=""></div>
+        <div class="plat-img-container"><img src="img/g2.jpg" alt=""></div>
+        <div class="plat-img-container"><img src="img/g3.jpg" alt=""></div>
+        <div class="plat-img-container"><img src="img/g4.jpg" alt=""></div>
+        <div class="plat-img-container"><img src="img/g5.jpg" alt=""></div>
+        <div class="plat-img-container"><img src="img/g6.jpg" alt=""></div>
+        <div class="plat-img-container"><img src="img/g7.jpg" alt=""></div>
+        <div class="plat-img-container"><img src="img/g8.jpg" alt=""></div>
+    </div>
+</section>
+
+<section id="video-restaurant" class="video-section">
+    <h2>Vídeos del restaurant</h2>
+    <div class="video-container">
+        <video id="meuVideo" muted loop preload="auto">
+            <source src="/src/projecte2.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay-controls">
+            <span class="material-icons btn-control" onclick="controlPlay()">play_circle</span>
+            <span class="material-icons btn-control" onclick="controlPause()">pause_circle</span>
+            <span class="material-icons btn-control" onclick="controlUnmute()">volume_up</span>
+            <span class="material-icons btn-control" onclick="controlMute()">volume_off</span>
+        </div>
+    </div>
+</section>
+
+<section id="reserva" class="reserva">
+    <h2>Reserva</h2>
+    <form>
+        <input type="text" class="input-transicio-propia" placeholder="Nom" required>
+        <input type="email" class="input-transicio-propia" placeholder="Email" required>
+        <input type="date" class="input-transicio-propia" required>
+        <button type="submit">Reservar</button>
+    </form>
+</section>
+
+<footer class="footer">
+    <div class="left">
+        <img src="img/logo.png" alt="Logo">
+    </div>
+    <div class="right">
+        <p><span class="material-icons">mail</span> info@restaurant.com</p>
+        <p><span class="material-icons">phone</span> 93 111 22 33</p>
+    </div>
+</footer>
+
+<script>
+    var video = document.getElementById("meuVideo");
+    var navbar = document.getElementById("navbar");
+    var videoSection = document.getElementById("video-restaurant");
+
+    function controlPlay() { video.play(); }
+    function controlPause() { video.pause(); }
+    function controlMute() { video.muted = true; }
+    function controlUnmute() { video.muted = false; }
+
+    window.onscroll = function() {
+        gestionarScrollNavbar();
+        gestionarAutoplayVideo();
+    };
+
+    function gestionarScrollNavbar() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            navbar.classList.add("navbar-shrink");
+        } else {
+            navbar.classList.remove("navbar-shrink");
+        }
+    }
+
+    function gestionarAutoplayVideo() {
+        var rect = videoSection.getBoundingClientRect();
+        var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        if (rect.top <= viewHeight && rect.bottom >= 0) {
+            if (video.paused) { video.play(); }
+        } else {
+            if (!video.paused) { video.pause(); }
+        }
+    }
+</script>
+
+</body>
+</html>
